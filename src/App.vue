@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <base-form :tipos="tipousuario" :apps="aplicaciones"> </base-form>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BaseForm from "./components/BaseForm.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    BaseForm,
+  },
+  data() {
+    return {
+      tipousuario: [
+        { id: 1, tipo: "usuario" },
+        { id: 2, tipo: "administrador" },
+      ],
+      aplicaciones: [
+        { id: 1, app: "Gestor" },
+        { id: 2, app: "Panel" },
+        { id: 3, app: "Experiencia" },
+        { id: 4, app: "Requerimientos" },
+        { id: 5, app: "Mantenimiento" },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
