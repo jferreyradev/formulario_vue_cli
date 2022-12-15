@@ -111,6 +111,14 @@ export default {
     };
   },
   methods: {
+    limpiarForm(){
+      this.form.nombre=""
+      this.form.apellido=""
+      this.form.email=""
+      this.form.password=""
+      this.aplicaciones=[]
+      this.tipoUsuario=0
+    },
     validar() {
       this.errores = [];
       for (const key in this.form) {
@@ -134,9 +142,14 @@ export default {
       }
       setTimeout(()=>{this.errores=[]},3000)
       console.log(this.errores);
+      if (this.errores.length===0){
+        this.$emit("submit", this.form)        
+      }
+      
     },
     enviar() {
-      console.log(this.form.aplicaciones);
+      console.log(this.form);
+      this.$emit("click", this.form)
     },
   },
 };

@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <base-form :tipos="tipousuario" :apps="aplicaciones"> </base-form>
+    <base-form @submit="handleClick" :tipos="tipousuario" :apps="aplicaciones">
+    </base-form>
+    <base-table :tabla="tabla" />
   </div>
 </template>
 
 <script>
 import BaseForm from "./components/BaseForm.vue";
+import BaseTable from './components/BaseTable.vue';
 
 export default {
   name: "App",
   components: {
     BaseForm,
+    BaseTable,
   },
   data() {
     return {
@@ -25,8 +29,15 @@ export default {
         { id: 4, app: "Requerimientos" },
         { id: 5, app: "Mantenimiento" },
       ],
-    };
+      tabla:[]
+    }    
   },
+  methods: {
+    handleClick(info) {
+      console.log(info)
+      this.tabla.push(info)
+    }
+  }
 };
 </script>
 
