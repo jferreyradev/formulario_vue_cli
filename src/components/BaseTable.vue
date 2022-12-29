@@ -1,5 +1,5 @@
 <template>
-  <table class="table">
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th v-for="(value, key, i) in tabla[0]" :key="i">
